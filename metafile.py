@@ -51,7 +51,7 @@ def metaJpg(ruta): # funcion que obtiene los metadatos exif de una imagen jpg
 
 if len(sys.argv)==3:
 	if sys.argv[1]=="1":
-		printMeta(sys.argv[2]) # invocamos la funcion con la ruta como parametro '''
+		printMeta(sys.argv[2]) # invocamos la funcion con la ruta como parametro
 	elif sys.argv[1]=="2":
 		metaJpg(sys.argv[2]) # invocamos la funcion con la ruta como parametro
 	else:
