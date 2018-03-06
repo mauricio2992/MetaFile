@@ -40,18 +40,13 @@ def metaJpg(ruta): # funcion que obtiene los metadatos exif de una imagen jpg
 				metadata = pyexiv2.ImageMetadata(dirpath+os.path.sep+name)
 				metadata.read()
 				print chr(27)+"[0;31m"+"### Metadata for file: %s" %(dirpath+os.path.sep+name)+chr(27)+"[0m"
-				color=2 # variable para variar de color cada linea
 				for metadato in metadata.exif_keys: 
-					if color==8: # vuelve e inicia en el color 2, verde
-						color=2
-					texto = metadato + ": " + metadata[metadato].raw_value # almacena la informacion y la imprime en colores
-					print chr(27)+"[0;3%dm" % color+texto
-					color=color+1
+					print chr(27)+"[0m"+metadato+": "+chr(27)+"[0;32m"+metadata[metadato].raw_value
 				print "\n"+chr(27)+"[0m"
 
 if len(sys.argv)==3:
 	if sys.argv[1]=="1":
-		printMeta(sys.argv[2]) # invocamos la funcion con la ruta como parametro
+		printMeta(sys.argv[2]) # invocamos la funcion con la ruta como parametro '''
 	elif sys.argv[1]=="2":
 		metaJpg(sys.argv[2]) # invocamos la funcion con la ruta como parametro
 	else:
